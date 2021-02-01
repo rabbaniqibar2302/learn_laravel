@@ -1,8 +1,15 @@
 @extends('layouts.master')
 @section('title','Beranda')
 @section('content')
-    @foreach ($articles as $article)
+    
+{{-- latihan asset --}}
+    {{-- <div class="col-md-5">
+        <img src="{{asset('/img/omen.jpg')}}" class="img-fluid">
+    </div> --}}
+
+{{-- latihan upload --}}
+    {{-- @foreach ($articles as $article)
         <p>{{ $article->title }}</p>
         
-    @endforeach
+    @endforeach --}}
 @endsection
