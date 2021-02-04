@@ -2,14 +2,16 @@
 @section('title','Beranda')
 @section('content')
     
-{{-- latihan asset --}}
-    {{-- <div class="col-md-5">
-        <img src="{{asset('/img/omen.jpg')}}" class="img-fluid">
-    </div> --}}
-
-{{-- latihan upload --}}
-    {{-- @foreach ($articles as $article)
-        <p>{{ $article->title }}</p>
-        
-    @endforeach --}}
-@endsection
+<div class="row">
+@foreach ( $articles as $article)
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <p><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></p>
+                <div>{{ $article->created_at->diffForHumans()}}</div>
+            </div>
+        </div> 
+    </div>
+    @endforeach
+</div>
+    @endsection

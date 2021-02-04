@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $articles = Article::get();
+        $articles = Article::limit(6)->get();
         return view ('home', compact('articles'));
     }
 }

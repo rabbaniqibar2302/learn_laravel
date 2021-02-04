@@ -24,4 +24,8 @@ class ArticleController extends Controller
 
          return back();
     }
+
+    public function show($id){
+        dd($id);
+    }
 }
