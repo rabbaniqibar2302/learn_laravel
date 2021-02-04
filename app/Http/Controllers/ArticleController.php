@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function create(){
-        return view ('articles.create');
+    public function create()
+    {
+        return view('articles.create');
     }
-    public function store(){
+    public function store()
+    {
         // validasi 
 
         $attr = request()->validate([
-            'title' => ['required', 'min:3' ,'max:255'],
+            'title' => ['required', 'min:3', 'max:255'],
             'content' => ['required'],
 
         ]);
@@ -22,13 +24,13 @@ class ArticleController extends Controller
         // $attr ['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);        
         Article::create($attr);
 
-         return back();
+        return back();
     }
 
     public function show($slug)
     {
         $article = Article::whereSlug($slug)->first();
-        if (is_null($article)){
+        if (is_null($article)) {
             abort(404);
         }
         return view('articles.show', compact('article'));
