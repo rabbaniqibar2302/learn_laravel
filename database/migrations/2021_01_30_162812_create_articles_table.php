@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // My First Article
-            $table->string('slug'); // My-First-Article
+            $table->string('slug')->unique(); // My-First-Article
             $table->text('content');
             $table->timestamps();
         });

@@ -11,11 +11,16 @@ class ArticleController extends Controller
         return view ('articles.create');
     }
     public function store(){
-         $article = new Article();
-         $article->title = request('title');
-         $article->slug = \Str::slug(request('title'));
-         $article->content = request('content');
-         $article->save();
+        // validasi 
+
+        $attr = request()->validate([
+            'title' => ['required', 'min:3' ,'max:255'],
+            'content' => ['required'],
+
+        ]);
+
+        // $attr ['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);        
+        Article::create($attr);
 
          return back();
     }
