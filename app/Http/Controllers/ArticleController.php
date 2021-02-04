@@ -25,7 +25,12 @@ class ArticleController extends Controller
          return back();
     }
 
-    public function show($id){
-        dd($id);
+    public function show($slug)
+    {
+        $article = Article::whereSlug($slug)->first();
+        if (is_null($article)){
+            abort(404);
+        }
+        return view('articles.show', compact('article'));
     }
 }

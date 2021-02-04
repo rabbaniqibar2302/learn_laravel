@@ -7,7 +7,7 @@
     <div class="col-md-4">
         <div class="card mb-3">
             <div class="card-body">
-                <p><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></p>
+                <p><a href="/articles/{{ $article->slug }}">{{ $article->title }}</a></p>
                 <div>{{ $article->created_at->diffForHumans()}}</div>
             </div>
         </div> 
