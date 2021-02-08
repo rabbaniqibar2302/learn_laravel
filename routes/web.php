@@ -9,4 +9,4 @@ Route::get('/create-new-article', 'ArticleController@create')->name('articles.cr
 
 Route::post('/create-new-article', 'ArticleController@store')->name('articles.store');
 
-Route::get('/articles/{slug}', 'ArticleController@show');
+Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');

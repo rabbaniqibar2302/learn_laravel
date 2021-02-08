@@ -27,12 +27,9 @@ class ArticleController extends Controller
         return back();
     }
 
-    public function show($slug)
+    public function show(Article $article)
     {
-        $article = Article::whereSlug($slug)->first();
-        if (is_null($article)) {
-            abort(404);
-        }
+        // $article = Article::whereSlug($slug)->first(); tadinya mau dipake , tapi gajadi yadah heheehhehhe
         return view('articles.show', compact('article'));
     }
 }
