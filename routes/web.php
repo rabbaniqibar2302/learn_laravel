@@ -10,3 +10,5 @@ Route::get('/create-new-article', 'ArticleController@create')->name('articles.cr
 Route::post('/create-new-article', 'ArticleController@store')->name('articles.store');
 
 Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
+
+Route::get('/edit-the-article-about/{article}', 'ArticleController@edit')->name('articles.edit');

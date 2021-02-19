@@ -32,4 +32,10 @@ class ArticleController extends Controller
         // $article = Article::whereSlug($slug)->first(); tadinya mau dipake , tapi gajadi yadah heheehhehhe
         return view('articles.show', compact('article'));
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit', compact('article'));
+        // dd($article);
+    }
 }
