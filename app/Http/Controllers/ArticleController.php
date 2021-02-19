@@ -38,4 +38,18 @@ class ArticleController extends Controller
         return view('articles.edit', compact('article'));
         // dd($article);
     }
+
+    public function update(Article $article)
+    {
+        $attr = request()->validate([
+            'title' => ['required', 'min:3', 'max:255'],
+            'content' => ['required'],
+
+        ]);
+
+        // $attr ['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);        
+        $article->update($attr);
+
+        return redirect()->route('articles.show', $article);
+    }
 }
