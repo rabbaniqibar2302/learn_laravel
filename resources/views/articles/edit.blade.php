@@ -15,10 +15,12 @@
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" class="form-control" value="{{ $article->title }}">
                         </div>
+                        <br>
                         <div class="form-group" >
                             <label for="content">Content</label>
                             <textarea name="content" id="content" class="form-control" >{{ $article->content }}</textarea>
                         </div>
+                        <br>
                         <button type="submit" class="btn btn-warning">Update</button>
                     </form>
                 </div>

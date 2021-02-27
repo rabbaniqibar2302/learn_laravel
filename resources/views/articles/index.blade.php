@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Beranda')
+@section('title','All Article ')
 @section('content')
     
 <div class="row">
@@ -14,5 +14,6 @@
     </div>
     @endforeach
 </div>
-<a href="{{ route('articles')}}" class="btn btn-primary">view more &raquo;</a>
+
+{{ $articles->links()}}
     @endsection
