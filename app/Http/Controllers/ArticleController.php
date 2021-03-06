@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
 
-    public function index(){
-        $articles = Article::paginate(9);
+    public function index()
+    {
+        $articles = Article::latest()->paginate(9);
         return view('articles.index', compact('articles'));
     }
     public function create()
     {
         return view('articles.create');
     }
-    public function store()
+    public function store(Article $article)
     {
         // validasi 
 
@@ -26,11 +28,12 @@ class ArticleController extends Controller
 
         ]);
 
-        // $attr ['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);        
+        $attr['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);
         Article::create($attr);
 
-        return back();
+        return redirect()->route('articles', $article);
     }
+
 
     public function show(Article $article)
     {
@@ -52,7 +55,7 @@ class ArticleController extends Controller
 
         ]);
 
-        // $attr ['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);        
+        $attr['slug'] = \Str::slug(request('title')) . '-' . \Str::random(10);
         $article->update($attr);
 
         return redirect()->route('articles.show', $article);
