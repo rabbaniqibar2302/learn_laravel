@@ -37,8 +37,10 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        // $article = Article::whereSlug($slug)->first(); tadinya mau dipake , tapi gajadi yadah heheehhehhe
+        
         return view('articles.show', compact('article'));
+        
+
     }
 
     public function edit(Article $article)
@@ -59,5 +61,12 @@ class ArticleController extends Controller
         $article->update($attr);
 
         return redirect()->route('articles.show', $article);
+    }
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+
+        return redirect()->route('articles');
     }
 }
