@@ -2,6 +2,8 @@
 
 use App\Article;
 
+Auth::routes();
+
 Route::get('/', 'HomeController@index')->name('home');
 
 
@@ -17,8 +19,5 @@ Route::get('/edit-the-article-about/{article}', 'ArticleController@edit')->name(
 Route::post('/edit-the-article-about/{article}', 'ArticleController@update');
 
 Route::post('/kick-this-out/{article}', 'ArticleController@destroy')->name('articles.delete');
-
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
